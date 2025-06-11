@@ -1,0 +1,22 @@
+{
+  "name": "canvas-lms-faker",
+  "version": "1.0.0",
+  "description": "Generate fake users and courses in Canvas LMS via API",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "test": "jest"
+  },
+  "dependencies": {
+    "@faker-js/faker": "^8.0.2",
+    "axios": "^1.6.7",
+    "dotenv": "^16.4.5",
+    "yargs": "^17.7.2"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0"
+  },
+  "jest": {
+    "testEnvironment": "node"
+  }
+}
