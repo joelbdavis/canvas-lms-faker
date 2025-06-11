@@ -21,12 +21,51 @@ function generateFakeUser() {
   };
 }
 
+const SUBJECTS = [
+  "Algebra",
+  "Geometry",
+  "Calculus",
+  "Statistics",
+  "Biology",
+  "Chemistry",
+  "Physics",
+  "Environmental Science",
+  "English",
+  "Literature",
+  "Composition",
+  "Creative Writing",
+  "World History",
+  "US History",
+  "Government",
+  "Economics",
+  "Spanish",
+  "French",
+  "German",
+  "Chinese",
+  "Art",
+  "Music",
+  "Theater",
+  "Computer Science",
+];
+
+const LEVELS = ["", "Honors", "AP", "IB"];
+const GRADES = ["9", "10", "11", "12"];
+
 function generateFakeCourse() {
-  const courseName = faker.company.buzzPhrase() + " " + faker.word.adjective();
-  const courseCode = faker.string.alphanumeric({ length: 6, casing: "upper" });
+  const subject = faker.helpers.arrayElement(SUBJECTS);
+  const level = faker.helpers.arrayElement(LEVELS);
+  const grade = faker.helpers.arrayElement(GRADES);
+
+  const courseName = [level, subject, grade].filter(Boolean).join(" ");
+  const courseCode = `${subject.substring(0, 3).toUpperCase()}${grade}${
+    level ? level.substring(0, 1) : ""
+  }`;
 
   return {
-    course: { name: courseName, course_code: courseCode },
+    course: {
+      name: courseName,
+      course_code: courseCode,
+    },
   };
 }
 
